@@ -1,0 +1,311 @@
+/*
+Theme Name: Ascend Tree Service
+Theme URI: n/a
+Author: Alec Fernandes
+Author URI: https://fern.haus/
+Description: Custom theme created for Ascend Tree Services by Fern Haus.
+Requires at least: n/a
+Tested up to: n/a
+Requires PHP: n/a
+License: For Fern Haus only.
+License URI: n/a
+Text Domain: SnS
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Archivo+Narrow&family=Cormorant:wght@600;700&display=swap");
+body {
+  --dark-accent: rgb(0, 78, 78);
+  --mid-accent: rgb(0, 110, 110);
+  --light-accent: rgb(134, 204, 204);
+  --icon-width: 120px;
+  --tree-circle-dim: 200px;
+  --banner-padding: 50px;
+  --logo-container-height: 120px;
+  --header-container-height: calc(var(--tree-circle-dim) + var(--banner-padding) + var(--logo-container-height));
+  --small-header-banner-height: 120px;
+  --spacing: 40px;
+  --menu-width: 250px;
+  background-color: var(--dark-accent);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.05em;
+  --sticky-phone-height: 40px;
+  --shadow-width: 20px; }
+  body #big-header,
+  body #small-header {
+    min-height: 100vh; }
+  body .gallery .gallery-item {
+    width: auto !important; }
+  body #hamburger,
+  body .closed,
+  body .open {
+    position: fixed;
+    top: 0;
+    z-index: 999; }
+  body #hamburger,
+  body #hamburger *,
+  body #navigation,
+  body #navigation * {
+    transition: 1s; }
+  body #sidebar #navigation {
+    min-height: 100vh; }
+  body #navigation {
+    background-color: var(--dark-accent);
+    background-image: url("images/tree-colorized.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    border-radius: 0 0 60px 0;
+    text-align: center; }
+    body #navigation.closed, body #navigation.open {
+      width: var(--menu-width);
+      height: 100vh; }
+    body #navigation.neither {
+      width: 100%;
+      min-height: 100vh; }
+    body #navigation,
+    body #navigation a {
+      color: antiquewhite; }
+    body #navigation a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      padding: 10px 0;
+      font-weight: bold;
+      text-decoration: none; }
+      body #navigation a:hover {
+        color: var(--mid-accent);
+        text-decoration: underline;
+        cursor: pointer; }
+    body #navigation ul {
+      padding-left: 0; }
+      body #navigation ul li {
+        width: 100%;
+        box-sizing: border-box;
+        list-style-type: none; }
+        body #navigation ul li:hover {
+          background-color: antiquewhite; }
+          body #navigation ul li:hover a {
+            color: var(--mid-accent); }
+    body #navigation h4 {
+      background-color: var(--mid-accent);
+      margin: 35px 0;
+      padding: 5px 20px;
+      font-family: "Cormorant", serif;
+      font-size: 1.8em; }
+    body #navigation.open {
+      left: 0;
+      box-shadow: 20px 0 20px rgba(0, 0, 0, 0.7); }
+    body #navigation.closed {
+      left: calc(-1 * var(--menu-width)); }
+  body #hamburger {
+    --hamburger-dim: 35px;
+    width: var(--hamburger-dim);
+    height: var(--hamburger-dim);
+    display: inline-block;
+    visibility: hidden;
+    opacity: 0; }
+    body #hamburger.shown {
+      visibility: visible;
+      opacity: 1; }
+    body #hamburger div {
+      width: 100%;
+      height: 5px;
+      background-color: antiquewhite;
+      border: 3px solid var(--dark-accent);
+      margin: 0;
+      position: relative; }
+    body #hamburger.hamburger-open {
+      left: var(--menu-width); }
+      body #hamburger.hamburger-open #top-line {
+        transform: rotate(45deg);
+        top: 12px; }
+      body #hamburger.hamburger-open #btm-line {
+        transform: rotate(-45deg);
+        top: -10px; }
+      body #hamburger.hamburger-open #mid-line {
+        visibility: hidden;
+        opacity: 0; }
+    body #hamburger.hamburger-closed {
+      left: 0; }
+      body #hamburger.hamburger-closed #mid-line {
+        visibility: visible;
+        opacity: 1; }
+  body,
+  body h1,
+  body h2,
+  body h3 {
+    margin: 0; }
+  body h1,
+  body h2,
+  body h3 {
+    font-family: "Cormorant", "Times New Roman", serif; }
+  body #sticky-phone h2 a:hover,
+  body .phone:hover {
+    color: antiquewhite; }
+  body #small-header {
+    position: relative;
+    top: var(--sticky-phone-height); }
+    body #small-header.dont-drop {
+      top: 0; }
+  body #sticky-phone {
+    width: 100%;
+    height: var(--sticky-phone-height);
+    background-color: var(--mid-accent);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 888;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    body #sticky-phone.no-visible-sticky-phone {
+      display: none; }
+    body #sticky-phone h2 {
+      display: flex;
+      flex: 1; }
+      body #sticky-phone h2 a {
+        color: var(--light-accent);
+        text-decoration: none;
+        flex: 1; }
+    body #sticky-phone.shown {
+      visibility: visible;
+      opacity: 1; }
+  body .phone {
+    color: var(--light-accent);
+    text-decoration: none; }
+  body #info,
+  body #sticky-phone h2,
+  body .phone {
+    font-family: "Archivo Narrow", sans-serif; }
+  body #header-container *,
+  body #info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; }
+  body #header-container {
+    width: 100%;
+    min-width: 100%;
+    transition: 1s ease-out; }
+    body #header-container #banner {
+      width: 100%;
+      color: white;
+      background-size: fill; }
+      body #header-container #banner #tree-circle {
+        width: var(--tree-circle-dim);
+        min-width: var(--tree-circle-dim);
+        height: var(--tree-circle-dim);
+        background-color: antiquewhite;
+        border-radius: calc(var(--tree-circle-dim) / 2);
+        border: 5px solid var(--dark-accent); }
+        body #header-container #banner #tree-circle img {
+          width: auto;
+          height: 90%; }
+    body #header-container #logo-container {
+      height: var(--logo-container-height);
+      background-color: antiquewhite;
+      padding: 20px 0; }
+      body #header-container #logo-container img {
+        width: auto;
+        height: 100%; }
+  body #boxes > a,
+  body #logo-container,
+  body .secondary-box {
+    box-shadow: 0 var(--shadow-width) var(--shadow-width) rgba(0, 0, 0, 0.5); }
+  body #small-header #content {
+    color: #333;
+    padding-bottom: var(--spacing) !important; }
+    body #small-header #content a {
+      color: var(--mid-accent);
+      font-weight: bold;
+      text-decoration: none; }
+      body #small-header #content a:hover {
+        color: var(--light-accent);
+        text-decoration: underline; }
+  body #content {
+    padding: 30px 20px !important;
+    box-sizing: border-box; }
+    body #content p {
+      font-size: 1.05em;
+      line-height: 1.6em; }
+  body .wpforms-form .wpforms-error-container,
+  body .wpforms-form label {
+    font: 1em "Roboto", sans-serif;
+    white-space: nowrap; }
+  body .wpforms-form .wpforms-error-container {
+    margin-bottom: 50px;
+    color: maroon;
+    font-style: italic;
+    line-height: 1.8em;
+    white-space: break-spaces; }
+  body .wpforms-form button {
+    background-color: var(--dark-accent);
+    color: antiquewhite;
+    font: bold 1.4em "Cormorant", serif;
+    margin: 20px 0;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px; }
+    body .wpforms-form button:hover {
+      cursor: pointer;
+      color: var(--light-accent); }
+  body .wpforms-form .wpforms-field-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px; }
+    body .wpforms-form .wpforms-field-container > * {
+      display: flex;
+      flex: 1; }
+      body .wpforms-form .wpforms-field-container > * label {
+        margin-right: 10px;
+        color: #333;
+        font-weight: bold; }
+      body .wpforms-form .wpforms-field-container > * input {
+        width: 100%;
+        min-width: 150px;
+        flex: 1; }
+      body .wpforms-form .wpforms-field-container > * input,
+      body .wpforms-form .wpforms-field-container > * textarea {
+        font: 1em "Roboto", sans-serif;
+        border-radius: 10px; }
+      body .wpforms-form .wpforms-field-container > *.wpforms-field-email, body .wpforms-form .wpforms-field-container > *.wpforms-field-name {
+        text-align: right;
+        align-items: center; }
+        body .wpforms-form .wpforms-field-container > *.wpforms-field-email input, body .wpforms-form .wpforms-field-container > *.wpforms-field-name input {
+          min-height: 30px; }
+      body .wpforms-form .wpforms-field-container > *.wpforms-field-textarea {
+        min-width: 100%;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        flex: 1; }
+        body .wpforms-form .wpforms-field-container > *.wpforms-field-textarea textarea {
+          height: 200px;
+          margin-top: 15px;
+          line-height: 1.5em; }
+  body #footer {
+    width: 100%;
+    background-color: antiquewhite;
+    padding: 10px 20px calc(1.5 * var(--spacing));
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 30px;
+    display: none; }
+    body #footer > div {
+      flex: 1;
+      max-width: 500px;
+      min-width: 300px; }
+      body #footer > div .wpforms-container {
+        margin-top: 30px; }
+      body #footer > div h4 {
+        color: var(--dark-accent);
+        font: bold 1.6em "Cormorant", serif;
+        line-height: 0; }
+
+/*# sourceMappingURL=style.css.map */

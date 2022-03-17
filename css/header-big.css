@@ -1,0 +1,140 @@
+#big-header {
+  background-color: var(--dark-accent); }
+  #big-header #header-container {
+    position: absolute;
+    top: calc(-1 * var(--header-container-height));
+    flex: 1; }
+    #big-header #header-container.down {
+      top: 0; }
+    #big-header #header-container #banner {
+      height: calc(var(--tree-circle-dim) + var(--banner-padding));
+      background-image: radial-gradient(circle at 50% 50%, rgba(0, 78, 78, 0.8) 100px, rgba(0, 110, 110, 0) 200px), url("https://fern.haus/projects/ascend/wp-content/uploads/2021/08/AdobeStock_183676217.jpg");
+      background-position: center; }
+  #big-header #content {
+    margin-top: calc(var(--header-container-height));
+    text-align: center;
+    opacity: 0;
+    transition: 1s ease-in; }
+    #big-header #content.shown {
+      opacity: 1; }
+    #big-header #content .tagline {
+      margin: auto;
+      color: antiquewhite; }
+      #big-header #content .tagline.bottom h2 {
+        display: flex;
+        flex-direction: column; }
+      #big-header #content .tagline h1 {
+        font-size: 3.1em;
+        line-height: 1.2em;
+        text-shadow: 0 10px 10px black; }
+      #big-header #content .tagline h2 {
+        font-size: 2em;
+        line-height: 1.3em;
+        text-shadow: 0 10px 10px black; }
+    #big-header #content #subheader {
+      margin-bottom: var(--spacing); }
+    #big-header #content #remove {
+      margin-top: var(--spacing); }
+    #big-header #content #give-back,
+    #big-header #content .tagline.bottom {
+      --gap: calc(var(--spacing) - (var(--shadow-width) / 2));
+      margin-top: var(--gap); }
+      #big-header #content #give-back.tagline.bottom h2,
+      #big-header #content .tagline.bottom.tagline.bottom h2 {
+        gap: var(--gap); }
+      #big-header #content #give-back#give-back,
+      #big-header #content .tagline.bottom#give-back {
+        margin-bottom: calc(2 * var(--spacing)); }
+    #big-header #content #subheader #info {
+      margin-top: 25px;
+      font-size: 1.4em;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      flex-wrap: wrap; }
+      #big-header #content #subheader #info a {
+        font-weight: bold; }
+      #big-header #content #subheader #info a,
+      #big-header #content #subheader #info div {
+        margin: 5px 20px;
+        white-space: nowrap; }
+    #big-header #content #boxes {
+      --gap: 20px;
+      max-width: 700px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap); }
+      #big-header #content #boxes > a {
+        min-width: 200px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        padding: 20px 10px;
+        color: #333;
+        text-decoration: none;
+        flex: 1; }
+        #big-header #content #boxes > a h4 {
+          margin: 0;
+          line-height: 1.6em;
+          font-weight: normal; }
+        #big-header #content #boxes > a .home-button-div {
+          margin-top: 20px;
+          background-color: #6aa800;
+          padding: 6px 10px;
+          color: antiquewhite;
+          font-weight: bold;
+          display: inline-block;
+          border-radius: 10px; }
+        #big-header #content #boxes > a.secondary-box {
+          min-width: calc(100% - (3 * var(--gap)));
+          background-color: var(--mid-accent);
+          font-weight: bold; }
+          #big-header #content #boxes > a.secondary-box#remove {
+            color: antiquewhite; }
+            #big-header #content #boxes > a.secondary-box#remove h4 {
+              font-weight: bold; }
+          #big-header #content #boxes > a.secondary-box#give-back {
+            background: linear-gradient(to right, antiquewhite 80px, rgba(255, 255, 255, 0.6) 50%), url(../images/give-back-bg.jpg), antiquewhite;
+            background-size: cover;
+            background-position: 40px 10%;
+            background-repeat: no-repeat;
+            display: flex;
+            gap: 30px; }
+            #big-header #content #boxes > a.secondary-box#give-back div {
+              display: flex;
+              justify-content: center; }
+              #big-header #content #boxes > a.secondary-box#give-back div:first-child {
+                align-items: center; }
+                #big-header #content #boxes > a.secondary-box#give-back div:first-child img {
+                  max-width: var(--icon-width);
+                  margin-left: 10px; }
+              #big-header #content #boxes > a.secondary-box#give-back div:last-child {
+                text-align: left;
+                flex-direction: column;
+                flex: 1; }
+                #big-header #content #boxes > a.secondary-box#give-back div:last-child h2 {
+                  margin-bottom: 5px;
+                  font-size: 2em;
+                  color: var(--dark-accent); }
+          #big-header #content #boxes > a.secondary-box .fake-link {
+            color: var(--light-accent);
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 4px;
+            display: inline-block; }
+          #big-header #content #boxes > a.secondary-box:hover {
+            background-color: #047979; }
+            #big-header #content #boxes > a.secondary-box:hover .fake-link {
+              color: antiquewhite; }
+        #big-header #content #boxes > a:not(.secondary-box):hover {
+          background-color: #fff5e8; }
+          #big-header #content #boxes > a:not(.secondary-box):hover .home-button-div {
+            background-color: var(--mid-accent); }
+        #big-header #content #boxes > a h3 {
+          margin: 20px 0;
+          color: var(--dark-accent);
+          font-size: 1.7em;
+          font-weight: 700; }
+        #big-header #content #boxes > a img {
+          max-width: var(--icon-width); }
+
+/*# sourceMappingURL=header-big.css.map */

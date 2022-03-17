@@ -1,0 +1,68 @@
+#small-header {
+  display: flex;
+  flex-direction: column; }
+  #small-header #header-container {
+    position: relative; }
+    #small-header #header-container #banner {
+      height: var(--small-header-banner-height);
+      background-image: url(https://fern.haus/projects/ascend/wp-content/uploads/2021/08/AdobeStock_183676217.jpg);
+      background-position: center; }
+    #small-header #header-container > a {
+      width: 100%;
+      display: inline-block; }
+    #small-header #header-container #logo-container {
+      gap: 20px; }
+      #small-header #header-container #logo-container img#tree {
+        width: auto;
+        height: 70px; }
+      #small-header #header-container #logo-container img#just-logo {
+        width: 300px;
+        height: auto; }
+  #small-header #content-and-sidebar-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex: 1; }
+    #small-header #content-and-sidebar-container #content {
+      padding: var(--spacing) 0;
+      background-color: white;
+      text-align: left;
+      flex: 3; }
+      #small-header #content-and-sidebar-container #content > * {
+        max-width: 600px;
+        margin: 0 auto 25px; }
+      #small-header #content-and-sidebar-container #content h1 {
+        margin-bottom: calc(var(--spacing) / 2);
+        color: var(--dark-accent);
+        font-size: 2.6em;
+        font-weight: 100; }
+    #small-header #content-and-sidebar-container #sidebar {
+      min-width: 250px;
+      background-color: #345656;
+      color: antiquewhite;
+      box-sizing: border-box;
+      flex: 1; }
+      #small-header #content-and-sidebar-container #sidebar #mission-statement {
+        font-size: 1.3em;
+        font-style: italic;
+        text-shadow: 0 10px 10px black; }
+        #small-header #content-and-sidebar-container #sidebar #mission-statement hr {
+          margin: 30px 0 20px; }
+
+.mobile-only {
+  display: none !important; }
+
+@media only screen and (max-width: 700px) {
+  #content,
+  #sidebar {
+    min-width: 100%; }
+
+  .mobile-only {
+    display: initial !important; }
+    .mobile-only:not(.up-top).hamburger-open, .mobile-only:not(.up-top).hamburger-closed {
+      top: var(--sticky-phone-height) !important; }
+
+  .neither {
+    display: none; } }
+
+/*# sourceMappingURL=header-small.css.map */

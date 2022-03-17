@@ -1,0 +1,110 @@
+#small-header {
+	display: flex;
+	flex-direction: column;
+
+	#header-container {
+		position: relative;
+
+		#banner {
+			height: var(--small-header-banner-height);
+			background-image: url(https://fern.haus/projects/ascend/wp-content/uploads/2021/08/AdobeStock_183676217.jpg);
+			background-position: center;
+		}
+
+		& > a {
+			width: 100%;
+			display: inline-block;
+		}
+
+		#logo-container {
+			gap: 20px;
+
+			img {
+				&#tree {
+					width: auto;
+					height: 70px;
+				}
+
+				&#just-logo {
+					width: 300px;
+					height: auto;
+				}
+			}
+		}
+	}
+
+	#content-and-sidebar-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		flex: 1;
+
+		#content {
+			padding: var(--spacing) 0;
+			background-color: white;
+			text-align: left;
+			flex: 3;
+
+			& > * {
+				max-width: 600px;
+				margin: 0 auto 25px;
+			}
+
+			h1 {
+				margin-bottom: calc(var(--spacing) / 2);
+				color: var(--dark-accent);
+				font-size: 2.6em;
+				font-weight: 100;
+				// font-style: italic;
+			}
+		}
+
+		#sidebar {
+			min-width: 250px;
+			background-color: #345656; // var(--dark-accent);
+			color: antiquewhite;
+			// padding: 50px 20px;
+			box-sizing: border-box;
+			flex: 1;
+
+			#mission-statement {
+				font-size: 1.3em;
+				font-style: italic;
+				text-shadow: 0 10px 10px black;
+
+				hr {
+					margin: 30px 0 20px;
+				}
+			}
+		}
+	}
+}
+
+//hamburger nav menu:
+.mobile-only {
+	display: none !important;
+}
+
+@media only screen and (max-width: 700px) {
+	#content,
+	#sidebar {
+		min-width: 100%;
+	}
+
+	//hamburger nav menu:
+	.mobile-only {
+		display: initial !important;
+
+		&:not(.up-top) {
+			&.hamburger-open,
+			&.hamburger-closed {
+				top: var(--sticky-phone-height) !important;
+			}
+		}
+	}
+
+	// hide sidebar nav menu:
+	.neither {
+		display: none;
+	}
+}

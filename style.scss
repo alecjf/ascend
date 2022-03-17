@@ -1,0 +1,468 @@
+/*
+Theme Name: Ascend Tree Service
+Theme URI: n/a
+Author: Alec Fernandes
+Author URI: https://fern.haus/
+Description: Custom theme created for Ascend Tree Services by Fern Haus.
+Requires at least: n/a
+Tested up to: n/a
+Requires PHP: n/a
+License: For Fern Haus only.
+License URI: n/a
+Text Domain: SnS
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Archivo+Narrow&family=Cormorant:wght@600;700&display=swap");
+
+body {
+	// variables:
+	--dark-accent: rgb(0, 78, 78);
+	--mid-accent: rgb(0, 110, 110);
+	--light-accent: rgb(134, 204, 204);
+	--icon-width: 120px;
+	--tree-circle-dim: 200px;
+	--banner-padding: 50px;
+	--logo-container-height: 120px;
+	--header-container-height: calc(var(--tree-circle-dim) + var(--banner-padding) + var(--logo-container-height));
+	--small-header-banner-height: 120px;
+	--spacing: 40px;
+	--menu-width: 250px;
+	background-color: var(--dark-accent);
+	font-family: "Roboto", sans-serif;
+	font-size: 1.05em;
+
+	#big-header,
+	#small-header {
+		min-height: 100vh;
+	}
+
+	.gallery {
+		.gallery-item {
+			width: auto !important;
+		}
+	}
+
+	#hamburger,
+	.closed,
+	.open {
+		position: fixed;
+		top: 0;
+		z-index: 999;
+	}
+
+	#hamburger,
+	#navigation {
+		&,
+		* {
+			transition: 1s;
+		}
+	}
+
+	#sidebar {
+		#navigation {
+			min-height: 100vh;
+		}
+	}
+
+	#navigation {
+		background-color: var(--dark-accent);
+		background-image: url("images/tree-colorized.png");
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		background-size: 65%;
+		border-radius: 0 0 60px 0;
+		text-align: center;
+
+		&.closed,
+		&.open {
+			width: var(--menu-width);
+			height: 100vh;
+		}
+
+		&.neither {
+			width: 100%;
+			min-height: 100vh;
+		}
+
+		&,
+		a {
+			color: antiquewhite;
+		}
+
+		a {
+			width: 100%;
+			height: 100%;
+			display: block;
+			padding: 10px 0;
+			font-weight: bold;
+			text-decoration: none;
+
+			&:hover {
+				color: var(--mid-accent);
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+
+		ul {
+			padding-left: 0;
+
+			li {
+				width: 100%;
+				box-sizing: border-box;
+				list-style-type: none;
+
+				&:hover {
+					background-color: antiquewhite;
+
+					a {
+						color: var(--mid-accent);
+					}
+				}
+			}
+		}
+
+		h4 {
+			background-color: var(--mid-accent);
+			margin: 35px 0;
+			padding: 5px 20px;
+			font-family: "Cormorant", serif;
+			font-size: 1.8em;
+		}
+
+		&.open {
+			left: 0;
+			box-shadow: 20px 0 20px rgba(0, 0, 0, 0.7);
+		}
+
+		&.closed {
+			left: calc(-1 * var(--menu-width));
+		}
+	}
+
+	#hamburger {
+		--hamburger-dim: 35px;
+		width: var(--hamburger-dim);
+		height: var(--hamburger-dim);
+		display: inline-block;
+		visibility: hidden;
+		opacity: 0;
+
+		&.shown {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		div {
+			width: 100%;
+			height: 5px;
+			background-color: antiquewhite;
+			border: 3px solid var(--dark-accent);
+			// box-sizing: border-box;
+			margin: 0;
+			position: relative;
+		}
+
+		&.hamburger-open {
+			left: var(--menu-width);
+
+			#top-line {
+				transform: rotate(45deg);
+				top: 12px;
+			}
+
+			#btm-line {
+				transform: rotate(-45deg);
+				top: -10px;
+			}
+
+			#mid-line {
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+
+		&.hamburger-closed {
+			left: 0;
+
+			#mid-line {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&,
+	h1,
+	h2,
+	h3 {
+		margin: 0;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: "Cormorant", "Times New Roman", serif;
+	}
+
+	#sticky-phone h2 a,
+	.phone {
+		&:hover {
+			color: antiquewhite;
+		}
+	}
+	--sticky-phone-height: 40px;
+
+	#small-header {
+		position: relative;
+		top: var(--sticky-phone-height);
+
+		&.dont-drop {
+			top: 0;
+		}
+	}
+
+	#sticky-phone {
+		width: 100%;
+		height: var(--sticky-phone-height);
+		background-color: var(--mid-accent);
+		box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		text-align: center;
+		z-index: 888;
+		visibility: hidden;
+		opacity: 0;
+		transition: 0.5s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		// for contact page (info's redundant):
+		&.no-visible-sticky-phone {
+			display: none;
+		}
+
+		h2 {
+			display: flex;
+			flex: 1;
+
+			a {
+				color: var(--light-accent);
+				text-decoration: none;
+				flex: 1;
+			}
+		}
+
+		&.shown {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.phone {
+		color: var(--light-accent);
+		text-decoration: none;
+	}
+
+	#info,
+	#sticky-phone h2,
+	.phone {
+		font-family: "Archivo Narrow", sans-serif;
+	}
+
+	#header-container *,
+	#info {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	#header-container {
+		width: 100%;
+		min-width: 100%;
+		transition: 1s ease-out;
+
+		#banner {
+			width: 100%;
+			// border: 1px solid black;
+			color: white;
+			background-size: fill;
+
+			#tree-circle {
+				width: var(--tree-circle-dim);
+				min-width: var(--tree-circle-dim);
+				height: var(--tree-circle-dim);
+				background-color: antiquewhite;
+				border-radius: calc(var(--tree-circle-dim) / 2);
+				border: 5px solid var(--dark-accent);
+
+				img {
+					width: auto;
+					height: 90%;
+				}
+			}
+		}
+
+		#logo-container {
+			height: var(--logo-container-height);
+			background-color: antiquewhite;
+			padding: 20px 0;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
+	--shadow-width: 20px;
+
+	#boxes > a,
+	#logo-container,
+	.secondary-box {
+		box-shadow: 0 var(--shadow-width) var(--shadow-width) rgba(0, 0, 0, 0.5);
+	}
+
+	#small-header {
+		#content {
+			color: #333;
+			padding-bottom: var(--spacing) !important;
+
+			a {
+				color: var(--mid-accent);
+				font-weight: bold;
+				text-decoration: none;
+
+				&:hover {
+					color: var(--light-accent);
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	#content {
+		padding: 30px 20px !important;
+		box-sizing: border-box;
+
+		p {
+			font-size: 1.05em;
+			line-height: 1.6em;
+		}
+	}
+
+	.wpforms-form {
+		.wpforms-error-container,
+		label {
+			font: 1em "Roboto", sans-serif;
+			white-space: nowrap;
+		}
+
+		.wpforms-error-container {
+			margin-bottom: 50px;
+			color: maroon;
+			font-style: italic;
+			line-height: 1.8em;
+			white-space: break-spaces;
+		}
+
+		button {
+			background-color: var(--dark-accent);
+			color: antiquewhite;
+			font: bold 1.4em "Cormorant", serif;
+			margin: 20px 0;
+			padding: 10px;
+			border: 0;
+			border-radius: 10px;
+
+			&:hover {
+				cursor: pointer;
+				color: var(--light-accent);
+			}
+		}
+
+		.wpforms-field-container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: stretch;
+			gap: 10px;
+
+			& > * {
+				display: flex;
+				flex: 1;
+
+				label {
+					margin-right: 10px;
+					color: #333;
+					font-weight: bold;
+				}
+
+				input {
+					width: 100%;
+					min-width: 150px;
+					flex: 1;
+				}
+
+				input,
+				textarea {
+					font: 1em "Roboto", sans-serif;
+					border-radius: 10px;
+				}
+
+				&.wpforms-field-email,
+				&.wpforms-field-name {
+					text-align: right;
+					align-items: center;
+
+					input {
+						min-height: 30px;
+					}
+				}
+
+				&.wpforms-field-textarea {
+					min-width: 100%;
+					margin-top: 5px;
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+
+					textarea {
+						height: 200px;
+						margin-top: 15px;
+						line-height: 1.5em;
+					}
+				}
+			}
+		}
+	}
+
+	#footer {
+		width: 100%;
+		// height: var(--logo-container-height);
+		background-color: antiquewhite;
+		padding: 10px 20px calc(1.5 * var(--spacing));
+		box-sizing: border-box;
+		// display: flex;
+		flex-wrap: wrap;
+		// align-items: flex-start;
+		justify-content: space-evenly;
+		gap: 30px;
+		display: none;
+
+		& > div {
+			flex: 1;
+			max-width: 500px;
+			min-width: 300px;
+
+			.wpforms-container {
+				margin-top: 30px;
+			}
+
+			h4 {
+				color: var(--dark-accent);
+				font: bold 1.6em "Cormorant", serif;
+				line-height: 0;
+			}
+		}
+	}
+}

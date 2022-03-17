@@ -1,0 +1,213 @@
+#big-header {
+	background-color: var(--dark-accent);
+
+	#header-container {
+		position: absolute;
+		top: calc(-1 * var(--header-container-height));
+		flex: 1;
+
+		&.down {
+			top: 0;
+		}
+
+		#banner {
+			height: calc(var(--tree-circle-dim) + var(--banner-padding));
+			background-image: radial-gradient(circle at 50% 50%, rgba(0, 78, 78, 0.8) 100px, rgba(0, 110, 110, 0) 200px), url("https://fern.haus/projects/ascend/wp-content/uploads/2021/08/AdobeStock_183676217.jpg");
+			background-position: center;
+		}
+	}
+
+	#content {
+		margin-top: calc(var(--header-container-height));
+		text-align: center;
+		opacity: 0;
+		transition: 1s ease-in;
+
+		&.shown {
+			opacity: 1;
+		}
+
+		.tagline {
+			margin: auto;
+			color: antiquewhite;
+
+			&.bottom h2 {
+				display: flex;
+				flex-direction: column;
+			}
+
+			h1 {
+				font-size: 3.1em;
+				line-height: 1.2em;
+				text-shadow: 0 10px 10px black;
+			}
+
+			h2 {
+				font-size: 2em;
+				line-height: 1.3em;
+				text-shadow: 0 10px 10px black;
+			}
+		}
+		// general spacing between homepage sections:
+		#subheader {
+			margin-bottom: var(--spacing);
+		}
+
+		#remove {
+			margin-top: var(--spacing);
+		}
+
+		#give-back,
+		.tagline.bottom {
+			--gap: calc(var(--spacing) - (var(--shadow-width) / 2));
+			margin-top: var(--gap);
+
+			&.tagline.bottom h2 {
+				gap: var(--gap);
+			}
+
+			&#give-back {
+				margin-bottom: calc(2 * var(--spacing));
+			}
+		}
+
+		#subheader {
+			#info {
+				margin-top: 25px;
+				font-size: 1.4em;
+				color: rgba(255, 255, 255, 0.6);
+				text-align: center;
+				flex-wrap: wrap;
+
+				a {
+					font-weight: bold;
+				}
+
+				a,
+				div {
+					margin: 5px 20px;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		#boxes {
+			--gap: 20px;
+			max-width: 700px;
+			margin: auto;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--gap);
+
+			& > a {
+				min-width: 200px;
+				background-color: antiquewhite;
+				border-radius: 10px;
+				padding: 20px 10px;
+				color: #333;
+				text-decoration: none;
+				flex: 1;
+
+				h4 {
+					margin: 0;
+					line-height: 1.6em;
+					font-weight: normal;
+				}
+
+				.home-button-div {
+					margin-top: 20px;
+					background-color: #6aa800;
+					padding: 6px 10px;
+					color: antiquewhite;
+					font-weight: bold;
+					display: inline-block;
+					border-radius: 10px;
+				}
+
+				&.secondary-box {
+					min-width: calc(100% - (3 * var(--gap)));
+					background-color: var(--mid-accent);
+					font-weight: bold;
+
+					&#remove {
+						color: antiquewhite;
+
+						h4 {
+							font-weight: bold;
+						}
+					}
+
+					&#give-back {
+						background: linear-gradient(to right, antiquewhite 80px, rgba(255, 255, 255, 0.6) 50%), url(../images/give-back-bg.jpg), antiquewhite;
+						background-size: cover;
+						background-position: 40px 10%;
+						background-repeat: no-repeat;
+						display: flex;
+						gap: 30px;
+
+						div {
+							display: flex;
+							justify-content: center;
+
+							&:first-child {
+								align-items: center;
+
+								img {
+									max-width: var(--icon-width);
+									margin-left: 10px;
+								}
+							}
+
+							&:last-child {
+								text-align: left;
+								flex-direction: column;
+								flex: 1;
+
+								h2 {
+									margin-bottom: 5px;
+									font-size: 2em;
+									color: var(--dark-accent);
+								}
+							}
+						}
+					}
+
+					.fake-link {
+						color: var(--light-accent);
+						font-weight: bold;
+						text-decoration: underline;
+						margin-top: 4px;
+						display: inline-block;
+					}
+
+					&:hover {
+						background-color: rgb(4, 121, 121);
+
+						.fake-link {
+							color: antiquewhite;
+						}
+					}
+				}
+
+				&:not(.secondary-box):hover {
+					background-color: rgb(255, 245, 232);
+
+					.home-button-div {
+						background-color: var(--mid-accent);
+					}
+				}
+
+				h3 {
+					margin: 20px 0;
+					color: var(--dark-accent);
+					font-size: 1.7em;
+					font-weight: 700;
+				}
+
+				img {
+					max-width: var(--icon-width);
+				}
+			}
+		}
+	}
+}
